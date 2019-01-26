@@ -26,7 +26,7 @@ const COMPONENTS = [
   UserRegisterResultComponent,
   // single pages
   UserLockComponent,
-  CallbackComponent
+  CallbackComponent,
 ];
 const COMPONENTS_NOROUNT = [];
 
@@ -35,4 +35,4 @@ const COMPONENTS_NOROUNT = [];
   declarations: [...COMPONENTS, ...COMPONENTS_NOROUNT],
   entryComponents: COMPONENTS_NOROUNT
 })
-export class RoutesModule {}
+export class RoutesModule { }

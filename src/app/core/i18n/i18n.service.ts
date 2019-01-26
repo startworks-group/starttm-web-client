@@ -31,8 +31,16 @@ interface LangData {
   abbr: string;
 }
 
-const DEFAULT = 'zh-CN';
+const DEFAULT = 'en-US';
 const LANGS: { [key: string]: LangData } = {
+  'en-US': {
+    text: 'English',
+    ng: ngEn,
+    zorro: en_US,
+    dateFns: df_en,
+    delon: delonEnUS,
+    abbr: '🇬🇧',
+  },  
   'zh-CN': {
     text: '简体中文',
     ng: ngZh,
@@ -48,14 +56,6 @@ const LANGS: { [key: string]: LangData } = {
     dateFns: df_zh_tw,
     delon: delonZhTw,
     abbr: '🇭🇰',
-  },
-  'en-US': {
-    text: 'English',
-    ng: ngEn,
-    zorro: en_US,
-    dateFns: df_en,
-    delon: delonEnUS,
-    abbr: '🇬🇧',
   },
 };
 

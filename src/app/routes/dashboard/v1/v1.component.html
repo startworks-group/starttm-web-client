@@ -4,6 +4,7 @@
     <small>Welcome !</small>
   </h1>
 </div>
+<!--
 <quick-menu>
   <nz-list [nzBordered]="false" [nzSplit]="false">
     <nz-list-item>
@@ -23,6 +24,7 @@
     </nz-list-item>
   </nz-list>
 </quick-menu>
+-->
 <div nz-row nzGutter="16">
   <div nz-col nzXs="24" nzSm="12" nzMd="6" class="mb-md">
     <div nz-row nzType="flex" nzAlign="middle" class="bg-primary rounded-md">
@@ -31,7 +33,8 @@
         <p class="text-nowrap mb0">Website Traffics</p>
       </div>
       <div nz-col nzSpan="12">
-        <g2-mini-bar *ngIf="webSite" height="35" color="#fff" borderWidth="3" [padding]="[36, 30, 30, 30]" [data]="webSite" tooltipType="mini"></g2-mini-bar>
+        <g2-mini-bar *ngIf="webSite" height="35" color="#fff" borderWidth="3" [padding]="[36, 30, 30, 30]" [data]="webSite"
+          tooltipType="mini"></g2-mini-bar>
       </div>
     </div>
   </div>
@@ -42,7 +45,8 @@
         <p class="text-nowrap mb0">Website Impressions</p>
       </div>
       <div nz-col nzSpan="12">
-        <g2-mini-bar *ngIf="webSite" height="35" color="#fff" borderWidth="3" [padding]="[36, 30, 30, 30]" [data]="webSite" tooltipType="mini"></g2-mini-bar>
+        <g2-mini-bar *ngIf="webSite" height="35" color="#fff" borderWidth="3" [padding]="[36, 30, 30, 30]" [data]="webSite"
+          tooltipType="mini"></g2-mini-bar>
       </div>
     </div>
   </div>
@@ -53,7 +57,8 @@
         <p class="text-nowrap mb0">Total Sales</p>
       </div>
       <div nz-col nzSpan="12">
-        <g2-mini-bar *ngIf="webSite" height="35" color="#fff" borderWidth="3" [padding]="[36, 30, 30, 30]" [data]="webSite" tooltipType="mini"></g2-mini-bar>
+        <g2-mini-bar *ngIf="webSite" height="35" color="#fff" borderWidth="3" [padding]="[36, 30, 30, 30]" [data]="webSite"
+          tooltipType="mini"></g2-mini-bar>
       </div>
     </div>
   </div>
@@ -64,7 +69,8 @@
         <p class="text-nowrap mb0">Support Tickets</p>
       </div>
       <div nz-col nzSpan="12">
-        <g2-mini-bar *ngIf="webSite" height="35" color="#fff" borderWidth="3" [padding]="[36, 30, 30, 30]" [data]="webSite" tooltipType="mini"></g2-mini-bar>
+        <g2-mini-bar *ngIf="webSite" height="35" color="#fff" borderWidth="3" [padding]="[36, 30, 30, 30]" [data]="webSite"
+          tooltipType="mini"></g2-mini-bar>
       </div>
     </div>
   </div>
@@ -85,7 +91,8 @@
         Growth Rate
         <small class="text-sm font-weight-normal">Business Expectations & Retail Sales Statistics</small>
       </ng-template>
-      <g2-timeline *ngIf="offlineChartData" [data]="offlineChartData" [height]="239" [padding]="[0, 0, 0, 0]" [titleMap]="{ y1: '客流量', y2: '支付笔数' }"></g2-timeline>
+      <g2-timeline *ngIf="offlineChartData" [data]="offlineChartData" [height]="239" [padding]="[0, 0, 0, 0]"
+        [titleMap]="{ y1: '客流量', y2: '支付笔数' }"></g2-timeline>
     </nz-card>
   </div>
 </div>
@@ -113,7 +120,8 @@
         Recent Posts
         <small class="text-sm font-weight-normal">Venenatis portauam Inceptos ameteiam</small>
       </ng-template>
-      <div nz-row [nzType]="'flex'" [nzJustify]="'center'" [nzAlign]="'middle'" class="py-sm bg-grey-lighter-h point" *ngFor="let item of todoData">
+      <div nz-row [nzType]="'flex'" [nzJustify]="'center'" [nzAlign]="'middle'" class="py-sm bg-grey-lighter-h point"
+        *ngFor="let item of todoData">
         <div nz-col [nzSpan]="4" class="text-center">
           <nz-avatar [nzSrc]="'./assets/tmp/img/' + item.avatar + '.png'"></nz-avatar>
         </div>
@@ -126,7 +134,8 @@
   </div>
   <div nz-col nzXs="24" nzMd="12">
     <nz-card nzTitle="Todo lists" [nzBordered]="false" class="ant-card__body-nopadding">
-      <div nz-row [nzType]="'flex'" [nzJustify]="'center'" [nzAlign]="'middle'" class="py-sm bg-grey-lighter-h point" *ngFor="let item of todoData">
+      <div nz-row [nzType]="'flex'" [nzJustify]="'center'" [nzAlign]="'middle'" class="py-sm bg-grey-lighter-h point"
+        *ngFor="let item of todoData">
         <div nz-col [nzSpan]="4" class="text-center">
           <nz-avatar [nzSrc]="'./assets/tmp/img/' + item.avatar + '.png'"></nz-avatar>
         </div>

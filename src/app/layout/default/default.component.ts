@@ -24,14 +24,15 @@ import { takeUntil } from 'rxjs/operators';
 import { updateHostClass } from '@delon/util';
 import { SettingsService } from '@delon/theme';
 
-import { environment } from '@env/environment';
-import { SettingDrawerComponent } from './setting-drawer/setting-drawer.component';
+// import { environment } from '@env/environment';
+// import { SettingDrawerComponent } from './setting-drawer/setting-drawer.component';
 
 @Component({
   selector: 'layout-default',
   templateUrl: './default.component.html',
 })
-export class LayoutDefaultComponent implements OnInit, AfterViewInit, OnDestroy {
+// export class LayoutDefaultComponent implements OnInit, AfterViewInit, OnDestroy {
+export class LayoutDefaultComponent implements OnInit, OnDestroy {
   private unsubscribe$ = new Subject<void>();
   @ViewChild('settingHost', { read: ViewContainerRef })
   private settingHost: ViewContainerRef;
@@ -83,6 +84,7 @@ export class LayoutDefaultComponent implements OnInit, AfterViewInit, OnDestroy 
     doc.body.classList[layout.colorWeak ? 'add' : 'remove']('color-weak');
   }
 
+  /*
   ngAfterViewInit(): void {
     // Setting componet for only developer
     if (!environment.production) {
@@ -92,6 +94,7 @@ export class LayoutDefaultComponent implements OnInit, AfterViewInit, OnDestroy 
       }, 22);
     }
   }
+  */
 
   ngOnInit() {
     const { settings, unsubscribe$ } = this;

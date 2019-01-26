@@ -1,3 +1,5 @@
+import { ClubFormComponent } from './clubs/club-form/club-form.component';
+import { ClubsComponent } from './clubs/clubs/clubs.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SimpleGuard } from '@delon/auth';
@@ -32,6 +34,10 @@ const routes: Routes = [
       { path: 'dashboard/analysis', component: DashboardAnalysisComponent },
       { path: 'dashboard/monitor', component: DashboardMonitorComponent },
       { path: 'dashboard/workplace', component: DashboardWorkplaceComponent },
+      // clubs
+      { path: 'clubs', loadChildren: './clubs/clubs.module#ClubsModule' },
+      // events
+      { path: 'events', loadChildren: './events/events.module#EventsModule' },
       {
         path: 'widgets',
         loadChildren: './widgets/widgets.module#WidgetsModule',
@@ -96,4 +102,4 @@ const routes: Routes = [
     )],
   exports: [RouterModule],
 })
-export class RouteRoutingModule {}
+export class RouteRoutingModule { }
