@@ -1,64 +1,49 @@
-<div class="main-content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="header">
-            <h4 class="title">Cadastrar Clube</h4>
-          </div>
-          <div class="content">
-            <form>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label for="federation">Federação</label>
-                    <input id="federation" type="text" class="form-control" placeholder="Federação">
-                    <!--Carregar as federações do sistema-->
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label for="name">Nome</label>
-                    <input id="name" type="text" class="form-control" placeholder="Nome do Clube">
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label>CEP</label>
-                    <input type="text" class="form-control" placeholder="99999-999">
-                  </div>
-                </div>
-                <div class="col-md-8">
-                  <div class="form-group">
-                    <label>Endereço</label>
-                    <input type="text" class="form-control" placeholder="Rua, Av e etc.">
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label>Cidade</label>
-                    <input type="text" class="form-control" placeholder="Cidade">
-                  </div>
-                </div>
-
-              </div>
-
-              <button type="submit" class="btn btn-info btn-fill pull-right">Cadastrar</button>
-              <div class="clearfix"></div>
-
-            </form>
-          </div>
-        </div>
-      </div>
+<nz-card [nzBordered]="true" nzTitle="Cadastrar Clubes">
+  <form nz-form [formGroup]="form" (ngSubmit)="_submitForm()" [nzLayout]="vertical" >
+    <div nz-row>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="4" nzFor="federacao">Federação</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <input nz-input formControlName="federacao" type="text" placeholder="Federação" required>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div nz-row>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="4" nzFor="club">Clube</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <input nz-input formControlName="club" type="text" placeholder="Clube" required>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div nz-row>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="4" nzFor="endereco">Endereço</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <input nz-input formControlName="endereco" type="text" placeholder="Endereço" required>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div nz-row>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="4" nzFor="cep">CEP</nz-form-label>
+        <nz-form-control [nzSpan]="6">
+          <input nz-input formControlName="cep" type="text" placeholder="CEP" required>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div nz-row>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="4" nzFor="cidade">Cidade</nz-form-label>
+        <nz-form-control [nzSpan]="6">
+          <input nz-input formControlName="cidade" type="text" id="cidade" placeholder="Cidade" required>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </form>
+  <div nz-row nzType="flex" nzJustify="start">
+    <div nz-col nzOffset=18>
+      <button nz-button type="submit" nzType="primary" (click)="_submitForm()">Cadastrar</button>
     </div>
   </div>
-</div>
+</nz-card>
