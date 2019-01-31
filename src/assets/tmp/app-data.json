@@ -1,7 +1,7 @@
 {
   "app": {
-    "name": "Alain",
-    "description": "Ng-zorro admin panel front-end framework"
+    "name": "Start TM",
+    "description": "Dê um start nos seus Eventos de tênis de mesa"
   },
   "user": {
     "name": "Admin",
@@ -10,13 +10,13 @@
   },
   "menu": [
     {
-      "text": "主导航",
+      "text": "Navegação principal",
       "i18n": "menu.main",
       "group": true,
       "hideInBreadcrumb": true,
       "children": [
         {
-          "text": "仪表盘",
+          "text": "Dashboard",
           "i18n": "menu.dashboard",
           "icon": "anticon anticon-dashboard",
           "children": [
@@ -43,111 +43,36 @@
           ]
         },
         {
-          "text": "快捷菜单",
-          "i18n": "menu.shortcut",
-          "icon": "anticon anticon-rocket",
-          "shortcutRoot": true,
-          "children": []
-        },
-        {
-          "text": "小部件",
-          "i18n": "menu.widgets",
-          "link": "/widgets",
+          "text": "Clubs",
+          "i18n": "menu.clubs",
           "icon": "anticon anticon-appstore",
-          "badge": 2
-        }
-      ]
-    },
-    {
-      "text": "Alain",
-      "i18n": "menu.alain",
-      "group": true,
-      "hideInBreadcrumb": true,
-      "children": [
-        {
-          "text": "样式",
-          "i18n": "menu.style",
-          "icon": "anticon anticon-info",
           "children": [
             {
-              "text": "Typography",
-              "link": "/style/typography",
-              "i18n": "menu.style.typography",
-              "shortcut": true
+              "text": "explore",
+              "link": "/clubs",
+              "i18n": "menu.clubs.explore"
             },
             {
-              "text": "Grid Masonry",
-              "link": "/style/gridmasonry",
-              "i18n": "menu.style.gridmasonry"
-            },
-            {
-              "text": "Colors",
-              "link": "/style/colors",
-              "i18n": "menu.style.colors"
+              "text": "Cadastrar",
+              "link": "/clubs/new",
+              "i18n": "menu.clubs.new"
             }
           ]
         },
         {
-          "text": "Delon",
-          "i18n": "menu.delon",
-          "icon": "anticon anticon-bulb",
+          "text": "Events",
+          "i18n": "menu.events",
+          "icon": "anticon anticon-profile",
           "children": [
             {
-              "text": "Dynamic Form",
-              "link": "/delon/form",
-              "i18n": "menu.delon.form"
+              "text": "explore",
+              "link": "/events",
+              "i18n": "menu.events.explore"
             },
             {
-              "text": "Simple Table",
-              "link": "/delon/simple-table",
-              "i18n": "menu.delon.table"
-            },
-            {
-              "text": "Util",
-              "link": "/delon/util",
-              "i18n": "menu.delon.util",
-              "acl": "role-a"
-            },
-            {
-              "text": "Print",
-              "link": "/delon/print",
-              "i18n": "menu.delon.print",
-              "acl": "role-b"
-            },
-            {
-              "text": "QR",
-              "link": "/delon/qr",
-              "i18n": "menu.delon.qr"
-            },
-            {
-              "text": "ACL",
-              "link": "/delon/acl",
-              "i18n": "menu.delon.acl"
-            },
-            {
-              "text": "Route Guard",
-              "link": "/delon/guard",
-              "i18n": "menu.delon.guard"
-            },
-            {
-              "text": "Cache",
-              "link": "/delon/cache",
-              "i18n": "menu.delon.cache"
-            },
-            {
-              "text": "Down File",
-              "link": "/delon/downfile",
-              "i18n": "menu.delon.downfile"
-            },
-            {
-              "text": "Xlsx",
-              "link": "/delon/xlsx",
-              "i18n": "menu.delon.xlsx"
-            },
-            {
-              "text": "Zip",
-              "link": "/delon/zip",
-              "i18n": "menu.delon.zip"
+              "text": "Cadastrar",
+              "link": "/events/new",
+              "i18n": "menu.events.new"
             }
           ]
         }
@@ -300,50 +225,6 @@
               "text": "settings",
               "link": "/pro/account/settings",
               "i18n": "menu.account.settings"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "text": "More",
-      "i18n": "menu.more",
-      "group": true,
-      "hideInBreadcrumb": true,
-      "children": [
-        {
-          "text": "Report",
-          "i18n": "menu.report",
-          "icon": "anticon anticon-cloud",
-          "children": [
-            {
-              "text": "Relation",
-              "link": "/data-v/relation",
-              "i18n": "menu.report.relation",
-              "reuse": false
-            }
-          ]
-        },
-        {
-          "text": "Extras",
-          "i18n": "menu.extras",
-          "link": "/extras",
-          "icon": "anticon anticon-link",
-          "children": [
-            {
-              "text": "Help Center",
-              "link": "/extras/helpcenter",
-              "i18n": "menu.extras.helpcenter"
-            },
-            {
-              "text": "Settings",
-              "link": "/extras/settings",
-              "i18n": "menu.extras.settings"
-            },
-            {
-              "text": "Poi",
-              "link": "/extras/poi",
-              "i18n": "menu.extras.poi"
             }
           ]
         }

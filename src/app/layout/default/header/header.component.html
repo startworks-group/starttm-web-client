@@ -12,26 +12,7 @@
         <i nz-icon type="menu-{{settings.layout.collapsed ? 'unfold' : 'fold'}}"></i>
       </div>
     </li>
-    <!-- Github Page -->
-    <li>
-      <a class="alain-default__nav-item" href="//github.com/ng-alain/ng-alain" target="_blank">
-        <i nz-icon type="github"></i>
-      </a>
-    </li>
-    <!-- Lock Page -->
-    <li class="hidden-mobile">
-      <div class="alain-default__nav-item" routerLink="/passport/lock">
-        <i nz-icon type="lock"></i>
-      </div>
-    </li>
-    <!-- Search Button -->
-    <li class="hidden-pc" (click)="searchToggleChange()">
-      <div class="alain-default__nav-item">
-        <i nz-icon type="search"></i>
-      </div>
-    </li>
   </ul>
-  <header-search class="alain-default__search" [toggleChange]="searchToggleStatus"></header-search>
   <ul class="alain-default__nav">
     <!-- Notify -->
     <li>
@@ -41,10 +22,11 @@
     <li class="hidden-mobile">
       <header-task></header-task>
     </li>
-    <!-- App Icons -->
+    <!-- App Icons 
     <li class="hidden-mobile">
       <header-icon></header-icon>
     </li>
+    -->
     <!-- Settings -->
     <li class="hidden-mobile">
       <nz-dropdown nzTrigger="click" nzPlacement="bottomRight">
