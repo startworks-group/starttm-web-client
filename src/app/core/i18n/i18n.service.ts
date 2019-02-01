@@ -4,22 +4,17 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 import { registerLocaleData } from '@angular/common';
-import ngZh from '@angular/common/locales/zh';
 import ngEn from '@angular/common/locales/en';
-import ngZhTw from '@angular/common/locales/zh-Hant';
+import ngPt from '@angular/common/locales/pt';
 
-import { en_US, zh_CN, zh_TW, NzI18nService } from 'ng-zorro-antd';
+import { en_US, pt_BR, NzI18nService } from 'ng-zorro-antd';
 import * as df_en from 'date-fns/locale/en';
-import * as df_zh_cn from 'date-fns/locale/zh_cn';
-import * as df_zh_tw from 'date-fns/locale/zh_tw';
 import { TranslateService } from '@ngx-translate/core';
 import {
   SettingsService,
   AlainI18NService,
   DelonLocaleService,
   en_US as delonEnUS,
-  zh_CN as delonZhCn,
-  zh_TW as delonZhTw,
 } from '@delon/theme';
 
 interface LangData {
@@ -28,34 +23,23 @@ interface LangData {
   zorro: any;
   dateFns: any;
   delon: any;
-  abbr: string;
 }
 
-const DEFAULT = 'en-US';
+const DEFAULT = 'pt-BR';
 const LANGS: { [key: string]: LangData } = {
+  'pt-BR': {
+    text: 'Português',
+    ng: ngPt,
+    zorro: pt_BR,
+    dateFns: df_en,
+    delon: delonEnUS,
+  },
   'en-US': {
     text: 'English',
     ng: ngEn,
     zorro: en_US,
     dateFns: df_en,
     delon: delonEnUS,
-    abbr: '🇬🇧',
-  },  
-  'zh-CN': {
-    text: '简体中文',
-    ng: ngZh,
-    zorro: zh_CN,
-    dateFns: df_zh_cn,
-    delon: delonZhCn,
-    abbr: '🇨🇳',
-  },
-  'zh-TW': {
-    text: '繁体中文',
-    ng: ngZhTw,
-    zorro: zh_TW,
-    dateFns: df_zh_tw,
-    delon: delonZhTw,
-    abbr: '🇭🇰',
   },
 };
 
@@ -66,7 +50,7 @@ export class I18NService implements AlainI18NService {
 
   private _langs = Object.keys(LANGS).map(code => {
     const item = LANGS[code];
-    return { code, text: item.text, abbr: item.abbr };
+    return { code, text: item.text };
   });
 
   constructor(
