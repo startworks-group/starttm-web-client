@@ -103,16 +103,16 @@ export const USERS = {
     const data = req.body;
     if (
       !(data.userName === 'admin' || data.userName === 'user') ||
-      data.password !== 'ng-alain.com'
+      data.password !== 'secret'
     ) {
-      return { msg: `Invalid username or password（admin/ng-alain.com）` };
+      return { msg: `Invalid username or password（admin/secret）` };
     }
     return {
       msg: 'ok',
       user: {
         token: '123456789',
         name: data.userName,
-        email: `${data.userName}@qq.com`,
+        email: `${data.userName}@starttm.com`,
         id: 10000,
         time: +new Date(),
       },
