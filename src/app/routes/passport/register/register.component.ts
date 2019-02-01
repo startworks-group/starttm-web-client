@@ -34,12 +34,13 @@ export class UserRegisterComponent implements OnDestroy {
     public msg: NzMessageService,
   ) {
     this.form = fb.group({
-      mail: [null, [Validators.required, Validators.email]],
+      username: [null, [Validators.required]],
+      email: [null, [Validators.required, Validators.email]],
       password: [
         null,
         [
           Validators.required,
-          Validators.minLength(6),
+          Validators.minLength(8),
           UserRegisterComponent.checkPassword.bind(this),
         ],
       ],
@@ -47,13 +48,10 @@ export class UserRegisterComponent implements OnDestroy {
         null,
         [
           Validators.required,
-          Validators.minLength(6),
+          Validators.minLength(8),
           UserRegisterComponent.passwordEquar,
         ],
       ],
-      mobilePrefix: ['+86'],
-      mobile: [null, [Validators.required, Validators.pattern(/^1\d{10}$/)]],
-      captcha: [null, [Validators.required]],
     });
   }
 
@@ -87,40 +85,17 @@ export class UserRegisterComponent implements OnDestroy {
 
   // #region fields
 
-  get mail() {
-    return this.form.controls.mail;
+  get username() {
+    return this.form.controls.username;
+  }
+  get email() {
+    return this.form.controls.email;
   }
   get password() {
     return this.form.controls.password;
   }
   get confirm() {
     return this.form.controls.confirm;
-  }
-  get mobile() {
-    return this.form.controls.mobile;
-  }
-  get captcha() {
-    return this.form.controls.captcha;
-  }
-
-  // #endregion
-
-  // #region get captcha
-
-  count = 0;
-  interval$: any;
-
-  getCaptcha() {
-    if (this.mobile.invalid) {
-      this.mobile.markAsDirty({ onlySelf: true });
-      this.mobile.updateValueAndValidity({ onlySelf: true });
-      return;
-    }
-    this.count = 59;
-    this.interval$ = setInterval(() => {
-      this.count -= 1;
-      if (this.count <= 0) clearInterval(this.interval$);
-    }, 1000);
   }
 
   // #endregion
@@ -136,14 +111,18 @@ export class UserRegisterComponent implements OnDestroy {
     }
 
     const data = this.form.value;
-    this.http.post('/register', data).subscribe(() => {
+    this.http.post('/register', {
+      username: data.username,
+      email: data.email,
+      password: data.password
+    }
+    ).subscribe(() => {
       this.router.navigateByUrl('/passport/register-result', {
-        queryParams: { email: data.mail },
+        queryParams: { email: data.email },
       });
     });
   }
 
   ngOnDestroy(): void {
-    if (this.interval$) clearInterval(this.interval$);
   }
 }
