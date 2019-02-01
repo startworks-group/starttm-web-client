@@ -65,12 +65,13 @@ export class StartupService {
             // ACL：设置权限为全量
             this.aclService.setFull(true);
             // 初始化菜单
+            // TODO Implementar a lógica para carregar diferentes menus para diferentes papéis de usuários
             this.menuService.add(res.menu);
             // 设置页面标题的后缀
             this.titleService.default = '';
             this.titleService.suffix = res.app.name;
           },
-          () => {},
+          () => { },
           () => {
             resolve(null);
           },
