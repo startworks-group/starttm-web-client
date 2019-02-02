@@ -1,0 +1,21 @@
+<nz-card nzHoverable *ngIf="item !== null" [nzActions]="[op1, op2]">
+  <ng-template #op1>
+    <a (click)="msg.success('操作一：' + item.id);">Inscrever-se</a>
+  </ng-template>
+  <ng-template #op2>
+    <a (click)="msg.success('操作二：' + item.id);">Saiba Mais</a>
+  </ng-template>
+  <nz-card-meta [nzAvatar]="nzAvatar" [nzTitle]="nzTitle" [nzDescription]="nzDescription">
+    <ng-template #nzAvatar>
+      <nz-avatar nzSize="large" [nzSrc]="item.logo"></nz-avatar>
+    </ng-template>
+    <ng-template #nzTitle>
+      <a (click)="msg.success('标题：' + item.id);">{{item.title}}</a>
+    </ng-template>
+    <ng-template #nzDescription>
+      <ellipsis>{{item.description}}</ellipsis>
+      <ellipsis>local: {{item.local}}</ellipsis>
+      <ellipsis>Data: {{item.data}}</ellipsis>
+    </ng-template>
+  </nz-card-meta>
+</nz-card>

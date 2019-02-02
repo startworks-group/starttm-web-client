@@ -1,34 +1,21 @@
-<nz-card>
-  <div>
-    <h3 class="h3">Portal de Clubes</h3>
-    <h4 class="mt-sm text-grey">Cadastre seus clubes aqui</h4>
+<page-header [title]="'Listar Clubes'" >
+  Clubes disponíveis no sistema
+</page-header>
+<nz-card [nzBordered]="false">
+  <button nz-button routerLink="new" [nzType]="'primary'">
+    <i nz-icon type="plus"></i>
+    <span>Cadastrar</span>
+  </button>
+  <div class="my-md">
+    <nz-alert [nzType]="'info'" [nzShowIcon]="true" [nzMessage]="message">
+      <ng-template #message>
+        Clubes cadastrados no sistema
+      </ng-template>
+    </nz-alert>
   </div>
-
-  <nz-card>
-    <div nz-row nzType="flex">
-      <div nz-col nzOffset=22>
-        <button nz-button nzType="primary" nzSize="large" routerLink="new">Novo</button>
-      </div>
-    </div>
-    <div>
-      <nz-table #basicTable>
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Federação</th>
-            <th>Cidade</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </nz-table>
-    </div> 
-  </nz-card>
+  <st #st [columns]="columns" [data]="data" [loading]="loading" (change)="stChange($event)">
+    <ng-template st-row="status" let-i>
+      <nz-badge [nzStatus]="i.statusType" [nzText]="i.statusText"></nz-badge>
+    </ng-template>
+  </st>
 </nz-card>

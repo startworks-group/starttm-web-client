@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { NzMessageService } from 'ng-zorro-antd';
 
 
 declare interface RouteInfo {
@@ -9,38 +10,50 @@ declare interface RouteInfo {
   button: string;
   class: string;
 }
-export const ROUTES: RouteInfo[] = [
-  {
-    path: 'new',
-    title: 'Cadastrar Evento',
-    icon: 'pe-7s-graph',
-    text: 'Cadastre eventos para que os atletas possam se inscrever e participar',
-    button: 'Cadastrar',
-    class: 'btn btn-primary'
-  },
 
-  //exemplo
-  {
-    path: 'update',
-    title: 'Alterar Evento',
-    icon: 'pe-7s-graph',
-    text: 'Altere informações de eventos',
-    button: 'Alterar',
-    class: 'btn btn-primary'
-  },
-];
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
-  styleUrls: ['./events.component.scss']
+  styleUrls: ['./events.component.scss'],
+  styles: [
+    `
+      :host ::ng-deep .ant-card-meta-title {
+        margin-bottom: 12px;
+      }
+    `,
+  ],
+  encapsulation: ViewEncapsulation.Emulated,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EventsComponent implements OnInit {
-  menuItems: any[];
+  list: any[] = [
+    {
+      id: '1',
+      logo: './assets/images/fpotm.jpg',
+      title: 'Estadual',
+      description: '3ª Etapa do Campeonato estadual 2018',
+      local: 'Natal-RN',
+      data: '28/07/2018 à 29/07/2018',
+      status: 'Aberto',
+    },
+    {
+      id: '2',
+      title: 'Nacional',
+      description: '2ª Copa nacional - Natal - 2019',
+      logo: './assets/images/fpotm.jpg',
+      local: 'Natal-RN',
+      data: '28/07/2018 à 29/07/2018',
+      status: 'Aberto',
+    },
+  ];
 
-  constructor() { }
+  loading = true;
+
+  constructor(public msg: NzMessageService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
-    this.menuItems = ROUTES.filter(menuItem => menuItem);
+    this.loading = false;
+    this.cdr.detectChanges();
   }
 
 }

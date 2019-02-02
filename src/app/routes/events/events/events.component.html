@@ -1,70 +1,10 @@
-<div class="main-content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="header">
-            <h4 class="title">Portal de Eventos</h4>
-            <p class="category">Gerencie aqui os seus eventos</p>
-          </div>
-          <div class="content">
-            <div class="card-deck">
-              <div class="card" routerLinkActive="active" *ngFor="let menuItem of menuItems">
-                <div class="card-body">
-                  <h4 class="card-title">{{menuItem.title}}</h4>
-                  <p class="card-text">{{menuItem.text}}</p>
-                  <a [routerLink]="[menuItem.path]" class="[menuItem.class]">
-                    <p>{{menuItem.button}}</p>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <img src="/assets/images/fpotm.jpg" alt="FPOTM" class="img-thumbnail" />
-          <div class="caption">
-            <h3> 1ª Etapa do Campeonato Estadual 2018</h3>
-            <p>Local: Mossoró-RN</p>
-            <p>Data: 24/03/2018 à 25/03/2018</p>
-            <p>Status: <span class="text-danger">Finalizado</span></p>
-            <p><a href="#" class="btn btn-default" role="button">Saiba mais</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <img src="/assets/images/fpotm.jpg" alt="FPOTM" class="img-thumbnail" />
-          <div class="caption">
-            <h3> 2ª Etapa do Campeonato Estadual 2018</h3>
-            <p>Local: Parnamirim-RN</p>
-            <p>Data: 09/06/2018 à 10/06/2018</p>
-            <p>Status: <span class="text-danger">Finalizado</span></p>
-            <p>
-              <a href="#" class="btn btn-default" role="button">Saiba mais</a>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <img src="/assets/images/fpotm.jpg" alt="FPOTM" class="img-thumbnail" />
-          <div class="caption">
-            <h3> 3ª Etapa do Campeonato estadual 2018</h3>
-            <p>Local: Natal-RN</p>
-            <p>Data: 28/07/2018 à 29/07/2018</p>
-            <p>Status: <span class="text-success">Aberto</span></p>
-            <p>
-              <a href="#" class="btn btn-default" role="button">Saiba mais</a>
-              <a href="#" class="btn btn-primary" role="button">Inscrever-se</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<page-header [title]="'Listar eventos'" >
+  Eventos disponíveis no sistema
+</page-header>
+<nz-list [nzLoading]="loading" [nzDataSource]="list" [nzRenderItem]="item" [nzGrid]="{gutter: 24, lg: 8, md: 12, sm: 24, xs: 24 }">
+  <ng-template #item let-item>
+    <nz-list-item>
+      <app-card-event [item]="item"></app-card-event>
+    </nz-list-item>
+  </ng-template>
+</nz-list>

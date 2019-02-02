@@ -7,12 +7,12 @@ import { FormGroup, FormBuilder, Validators} from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ClubFormComponent implements OnInit {
-  form: FormGroup;
+  formClub: FormGroup;
 
   constructor(private fb: FormBuilder, private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    this.form = this.fb.group({
+    this.formClub = this.fb.group({
       federacao: [null, [Validators.required]],
       club: [null, [Validators.required]],
       endereco: [null, [Validators.required]],

@@ -1,10 +1,7 @@
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
-
+import { SharedModule } from '@shared';
 import { NgModule } from '@angular/core';
 
-import { NgZorroAntdModule, NZ_I18N, pt_BR } from 'ng-zorro-antd';
+import { NZ_I18N, pt_BR } from 'ng-zorro-antd';
 
 import { ClubsRoutingModule } from './clubs-routing.module';
 import { ClubsComponent } from './clubs/clubs.component';
@@ -17,13 +14,9 @@ const COMPONENTS = [
 
 @NgModule({
   imports: [
-    RouterModule, //permite navegar no sistema sem precisar dar um reload na página.
-    CommonModule, //permite utilizar *ngFor *ngIf ... no component.html
-    NgZorroAntdModule,
+    SharedModule,
     ClubsRoutingModule,
-    ReactiveFormsModule
   ],
   declarations: [...COMPONENTS],
-  providers: [{ provide: NZ_I18N, useValue: pt_BR }]
 })
 export class ClubsModule { }

@@ -1,22 +1,23 @@
+import { SharedModule } from '@shared';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
 
 import { EventsRoutingModule } from './events-routing.module';
 import { EventsComponent } from './events/events.component';
 import { CreateEventComponent } from './create-event/create-event.component';
+import { CardEventComponent } from './card-event/card-event.component';
 
 const COMPONENTS = [
   EventsComponent,
   CreateEventComponent
 ];
 
+const COMPONENTS_NOROUNT = [CardEventComponent];
+
 @NgModule({
   imports: [
-    RouterModule, //permite navegar no sistema sem precisar dar um reload na página.
-    CommonModule, //permite utilizar *ngFor *ngIf ... no component.html
-    EventsRoutingModule
+   SharedModule,    
+   EventsRoutingModule, 
   ],
-  declarations: [...COMPONENTS],
+  declarations: [...COMPONENTS, ...COMPONENTS_NOROUNT],
 })
 export class EventsModule { }

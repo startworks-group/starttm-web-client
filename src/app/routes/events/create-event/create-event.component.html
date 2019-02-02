@@ -1,3 +1,50 @@
-<p>
-  create-event works!
-</p>
+<page-header [title]="'Cadastrar eventos'" ></page-header>
+<nz-card [nzBordered]="true" nzTitle="Cadastrar Evento">
+  <form nz-form [formGroup]="formEvent" (ngSubmit)="_submitForm()" [nzLayout]="vertical" >
+    <div nz-row>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="4" nzFor="federacao">Federação</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <input nz-input formControlName="federacao" type="text" placeholder="Federação" required>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div nz-row>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="4" nzFor="club">Clube</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <input nz-input formControlName="club" type="text" placeholder="Clube" required>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div nz-row>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="4" nzFor="endereco">Endereço</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <input nz-input formControlName="endereco" type="text" placeholder="Endereço" required>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div nz-row>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="4" nzFor="cep">CEP</nz-form-label>
+        <nz-form-control [nzSpan]="6">
+          <input nz-input formControlName="cep" type="text" placeholder="CEP" required>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div nz-row>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="4" nzFor="cidade">Cidade</nz-form-label>
+        <nz-form-control [nzSpan]="6">
+          <input nz-input formControlName="cidade" type="text" id="cidade" placeholder="Cidade" required>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </form>
+  <div nz-row nzType="flex">
+    <div nz-col nzOffset=18>
+      <button nz-button type="submit" nzType="primary" (click)="_submitForm()">Cadastrar</button>
+    </div>
+  </div>
+</nz-card>

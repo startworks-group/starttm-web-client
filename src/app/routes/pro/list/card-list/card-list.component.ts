@@ -16,11 +16,24 @@ import { _HttpClient } from '@delon/theme';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProCardListComponent implements OnInit {
-  list: any[] = [null];
+  list: any[] = [
+    {
+      id: '1',
+      title: 'Estadual',
+      description: '3ª Etapa do Campeonato estadual 2018',
+      logo: './assets/images/fpotm.jpg',
+    },
+    {
+      id: '2',
+      title: 'Nacional',
+      description: '2ª Copa nacional - Natal - 2019',
+      logo: './assets/images/fpotm.jpg',
+    },
+  ];
 
   loading = true;
 
-  constructor(private http: _HttpClient, public msg: NzMessageService, private cdr: ChangeDetectorRef) {}
+  constructor(private http: _HttpClient, public msg: NzMessageService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.loading = true;

@@ -32,9 +32,9 @@ const DIRECTIVES = [];
 
 @NgModule({
   imports: [
-    CommonModule,
+    CommonModule, //permite utilizar *ngFor *ngIf ... no component.html
     FormsModule,
-    RouterModule,
+    RouterModule, //permite navegar no sistema sem precisar dar um reload na página.
     ReactiveFormsModule,
     AlainThemeModule.forChild(),
     DelonABCModule,
