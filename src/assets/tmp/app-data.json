@@ -75,6 +75,23 @@
               "i18n": "menu.events.new"
             }
           ]
+        },
+        {
+          "text": "Federations",
+          "i18n": "menu.federations",
+          "icon": "anticon anticon-profile",
+          "children": [
+            {
+              "text": "explore",
+              "link": "/federations",
+              "i18n": "menu.federations.explore"
+            },
+            {
+              "text": "Cadastrar",
+              "link": "/federations/new",
+              "i18n": "menu.federations.new"
+            }
+          ]
         }
       ]
     },

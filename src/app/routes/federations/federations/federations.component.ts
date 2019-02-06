@@ -1,22 +1,33 @@
-import { Club } from './../../../models/club';
-import { ClubService } from './../../../services/club.service';
-import { FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
-
-
 import { Component, OnInit, ViewChild, TemplateRef, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { NzMessageService, NzModalService } from 'ng-zorro-antd';
 import { _HttpClient } from '@delon/theme';
 import { tap, map } from 'rxjs/operators';
 import { STComponent, STColumn, STData, STChange } from '@delon/abc';
+import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
+import { Federation } from './../../../models/federation';
+
+
+/*
+  Parâmetros de federations:
+  -id: number;
+  -uf: number;
+  -name: string;
+  -initials: string;
+  -logo_url?: string;
+
+  Criar um model 'federation' na pasta model;
+
+  AINDA NÃO ESTÁ PRONTO! MODIFICAR DE ACORDO COM OS PARÂMETROS DO MODEL FEDERATION ACIMA
+*/
 
 @Component({
-  selector: 'app-clubs',
-  templateUrl: './clubs.component.html',
-  styleUrls: ['./clubs.component.scss']
+  selector: 'app-federations',
+  templateUrl: './federations.component.html',
+  styleUrls: ['./federations.component.scss']
 })
-export class ClubsComponent implements OnInit {
+export class FederationsComponent implements OnInit {
   q: any = {
     pi: 1,
     ps: 10,
@@ -24,7 +35,7 @@ export class ClubsComponent implements OnInit {
     status: null,
     statusList: [],
   };
-  clubs: Club[]; //change for type Club
+  federations: Federation[]; //change for type Federations LEMBRAR DE MUDAR OS NOMES DAS VARIÁVEIS
   data: any[] = [];
   loading = false;
   status = [
@@ -43,33 +54,18 @@ export class ClubsComponent implements OnInit {
   @ViewChild('st')
   st: STComponent;
   columns: STColumn[] = [
-    { title: 'Id', index: 'no' }, // Primeira coluna
-    { title: 'Nome', index: 'description' },  //Segunda coluna
-    { //Terceira coluna
-      title: 'Federação',
+    { title: 'Id', index: 'no' },
+    { title: 'Federação', index: 'description' },
+    {title: 'Sigla', index: 'description'},
+    {
+      title: 'UF',
       index: 'callNo',
       type: 'number',
       format: (item: any) => `${item.callNo} R$`,
       sorter: (a: any, b: any) => a.callNo - b.callNo,
     },
-    { // Quarta coluna
-      title: 'Status',
-      index: 'status',
-      render: 'status',
-      filter: {
-        menus: this.status,
-        fn: (filter: any, record: any) => record.status === filter.index,
-      },
-    },
-    { // Quinta coluna
-      title: 'Data de Cadastro',
-      index: 'updatedAt',
-      type: 'date',
-      sort: {
-        compare: (a: any, b: any) => a.updatedAt - b.updatedAt,
-      },
-    },
-    { // Sexta coluna
+    
+    {
       title: 'Ações',
       buttons: [
         {
@@ -94,7 +90,7 @@ export class ClubsComponent implements OnInit {
     private modalSrv: NzModalService,
     private cdr: ChangeDetectorRef,
 
-    private clubService: ClubService,
+    //private federationService: FederationService,
     private formBuilder: FormBuilder,
     private router: Router,
   ) { }
@@ -171,19 +167,20 @@ export class ClubsComponent implements OnInit {
     setTimeout(() => this.getData());
   }
 
-  // ClubService
-  deleteClub(club: Club): void {
-    this.clubService.delete(club.id)
+  // Implementar o FederationService
+
+  deleteFederation(): void {
+    /*this.clubService.delete(club.id)
       .subscribe(data => {
         this.clubs = this.clubs.filter(u => u !== club);
-      })
+      })*/
   };
 
-  editClub(club: Club): void {
+  editFederation(): void {
     this.router.navigate(['edit']);
   };
 
-  addClub(): void {
+  addFederation(): void {
     this.router.navigate(['new']);
   };
 }

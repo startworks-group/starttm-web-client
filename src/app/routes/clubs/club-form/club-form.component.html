@@ -19,14 +19,6 @@
     </div>
     <div nz-row>
       <nz-form-item>
-        <nz-form-label [nzSpan]="4" nzFor="endereco">Endereço</nz-form-label>
-        <nz-form-control [nzSpan]="14">
-          <input nz-input formControlName="endereco" type="text" placeholder="Endereço" required>
-        </nz-form-control>
-      </nz-form-item>
-    </div>
-    <div nz-row>
-      <nz-form-item>
         <nz-form-label [nzSpan]="4" nzFor="cep">CEP</nz-form-label>
         <nz-form-control [nzSpan]="6">
           <input nz-input formControlName="cep" type="text" placeholder="CEP" required>
@@ -41,6 +33,16 @@
         </nz-form-control>
       </nz-form-item>
     </div>
+    <div nz-row>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="4" nzFor="endereco">Endereço</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <input nz-input formControlName="endereco" type="text" placeholder="Endereço" required>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    
+    
   </form>
   <div nz-row nzType="flex">
     <div nz-col nzOffset=18>

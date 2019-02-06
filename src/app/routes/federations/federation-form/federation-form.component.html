@@ -1,0 +1,35 @@
+<page-header [title]="'Cadastrar Federação'"></page-header>
+<nz-card [nzBordered]="true" nzTitle="Formulário de Federação">
+  <form nz-form [formGroup]="formFederation" (ngSubmit)="_submitForm()" [nzLayout]="vertical">
+    <div nz-row>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="4" nzFor="federacao">Federação</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <input nz-input formControlName="federacao" type="text" placeholder="Federação" required>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div nz-row>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="4" nzFor="initials">Sigla da Federação</nz-form-label>
+        <nz-form-control [nzSpan]="6">
+          <input nz-input formControlName="initials" type="text" id="initials" placeholder="Sigla" required>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div nz-row>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="4" nzFor="uf">UF</nz-form-label>
+        <nz-form-control [nzSpan]="6">
+          <input nz-input formControlName="uf" type="text" placeholder="Estado" required>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    
+  </form>
+  <div nz-row nzType="flex">
+    <div nz-col nzOffset=18>
+      <button nz-button type="submit" nzType="primary" (click)="_submitForm()">Cadastrar</button>
+    </div>
+  </div>
+</nz-card>
